@@ -1,0 +1,36 @@
+{
+  "json_class": "Chef::Role",
+  "name": "app",
+  "description": "Rails application server testapp",
+  "run_list": ["recipe[rails-stack]"],
+  "default_attributes": {
+    "nginx": {
+      "version": "1.4.1",
+      "init_style": "init"
+    },
+    "apps":
+      [
+        {
+          "name": "app",
+          "user": "deploy",
+          "ruby_version": "2.0.0-p247",
+          "domain_name": "app.local",
+          "authorized_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoWPInCKRukLnr3gLCS3yC0ruzL5PCy1//S6/SqeCOUjPA8Im0PRZENBkM3G7XlJKwrgVjmzpL+vNgAkyeZmeERy4jJqgySOg2mAKrwLawtV53Mie9+S8MbjWCvrP5x6xPajM8TUtucaiK6cB/ccSpoa0IzzRitVwUUc44+00391nRkjoxVZFO6Mli5zVFJ6/19f/rzHX4Ym7XmIPzvg4WpSehF9Gp5vksTfMTNF0/FxRXRehzdDZYS/mOer2qMvqZy3r6iea9jUazST8aqRVRc8k+Mmpb7GBY/rKGP8HCIpXrcG31KRB1LoEOEfhRFQrZMAKmU0Qi8oS+BZ4gVTNr Apollo@Apollo"],
+          "app_server": {
+            "type": "puma",
+            "min_threads": "0",
+            "max_threads": "16",
+            "workers": "0"
+          },
+          "database": {
+            "dbname": "app_production",
+            "server": true,
+            "type": "postgresql",
+            "username": "postgres",
+            "password": "postgres",
+            "host": "localhost"
+          }
+        }
+      ]
+  }
+}
