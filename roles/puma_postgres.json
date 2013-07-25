@@ -1,13 +1,18 @@
 {
   "json_class": "Chef::Role",
   "name": "app",
+  "app_server" : "puma",
   "description": "Rails application server testapp",
+
   "run_list": ["recipe[rails-stack]"],
+
   "default_attributes": {
+    "app_server" : "puma",
     "nginx": {
       "version": "1.4.1",
       "init_style": "init"
     },
+    
     "apps":
       [
         {
@@ -26,7 +31,7 @@
             "dbname": "app_production",
             "server": true,
             "type": "postgresql",
-            "username": "postgres",
+            "username": "app_db",
             "password": "postgres",
             "host": "localhost"
           }

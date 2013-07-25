@@ -2,6 +2,7 @@
   "json_class": "Chef::Role",
   "name": "mri-2.0.0-p247_postgres_puma",
   "description": "Rails application server testapp",
+  "app_server" : "puma",
   "run_list": ["recipe[rails-stack]"],
   "default_attributes": {
     "nginx": {

@@ -3,7 +3,6 @@
 /.ruby-gemset
 *DS_Store
 /cookbooks
-/nodes/*
 /tmp
 /scripts
 /.vagrant
